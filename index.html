@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meine Web-Apps - Mamrehn</title>
+    <!-- Google Fonts: Open Sans for a clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for a more sensical and harmonious theme */
+        :root {
+            --site-primary-color: #2c3e50; /* Dark Slate Gray for overall site header/footer */
+            --student-color: #27ae60; /* Emerald Green for student section */
+            --teacher-color: #8e44ad; /* Amethyst for teacher section */
+
+            --secondary-bg-color: #ecf0f1; /* Clouds - very light grey/off-white for sections */
+            --text-color: #34495e; /* Wet Asphalt - dark but soft grey for main text */
+            --header-text-color: #ffffff; /* White for header text */
+            --card-bg: #ffffff; /* White for card backgrounds */
+            --card-shadow: rgba(0, 0, 0, 0.05); /* Even lighter, more subtle shadow */
+            --border-radius: 8px; /* Consistent rounded corners */
+            --transition-speed: 0.3s ease; /* Smooth transitions */
+        }
+
+        /* Base Body Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* A very light, clean background */
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: var(--site-primary-color);
+            color: var(--header-text-color);
+            padding: 1.0rem 0; /* Reduced padding for header */
+            text-align: center;
+            box-shadow: 0 2px 6px var(--card-shadow); /* Subtle shadow */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.2em; /* Slightly smaller font size */
+            letter-spacing: 1.2px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 960px; /* Even narrower max width for more compactness */
+            margin: 2rem auto; /* Reduced margin for more vertical space */
+            padding: 0 1rem; /* Reduced padding */
+        }
+
+        /* Category Section Styling */
+        .category-section {
+            background-color: var(--secondary-bg-color);
+            padding: 2rem; /* Reduced padding for sections */
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem; /* Reduced space between sections */
+            box-shadow: 0 4px 12px var(--card-shadow); /* Slightly more pronounced but still light shadow */
+            border: 1px solid #e0e0e0; /* Light border */
+        }
+
+        .category-section h2 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 1.5rem; /* Reduced space below heading */
+            font-size: 2.2em; /* Slightly smaller font size */
+            position: relative;
+            padding-bottom: 10px; /* Reduced padding */
+        }
+
+        .category-section h2::after {
+            content: '';
+            display: block;
+            width: 80px; /* Shorter underline */
+            height: 3px; /* Thinner underline */
+            margin: 8px auto 0; /* Reduced margin */
+            border-radius: 2px;
+        }
+
+        /* Specific colors for student category */
+        .student-category h2 {
+            color: var(--student-color);
+        }
+        .student-category h2::after {
+            background: linear-gradient(to right, var(--student-color), #7f8c8d); /* Muted grey for gradient end */
+        }
+
+        /* Specific colors for teacher category */
+        .teacher-category h2 {
+            color: var(--teacher-color);
+        }
+        .teacher-category h2::after {
+            background: linear-gradient(to right, var(--teacher-color), #7f8c8d); /* Muted grey for gradient end */
+        }
+
+        /* App Grid Layout */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min-width for cards */
+            gap: 1.5rem; /* Reduced space between cards */
+        }
+
+        /* Individual App Card Styling */
+        .app-card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px var(--card-shadow); /* Subtle card shadow */
+            overflow: hidden;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f0f0f0;
+        }
+
+        .app-card:hover {
+            transform: translateY(-4px); /* Gentle lift effect on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slightly more visible shadow on hover */
+        }
+
+        .app-card .card-header {
+            color: var(--header-text-color);
+            margin: 0;
+            padding: 1rem 1.2rem; /* Reduced padding */
+            font-size: 1.3em; /* Slightly smaller font size */
+            text-align: left; /* Align text to the left */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            word-break: break-word;
+            text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between; /* Space out name and icons */
+            align-items: center;
+            cursor: pointer; /* Indicate clickable header */
+            position: relative; /* For the pseudo-element icon */
+        }
+
+        /* Card header background for student tools */
+        .student-category .app-card .card-header {
+            background-color: var(--student-color);
+        }
+
+        /* Card header background for teacher tools */
+        .teacher-category .app-card .card-header {
+            background-color: var(--teacher-color);
+        }
+
+        .app-card .card-header h3 {
+            margin: 0;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Reduced space between title and description icon */
+        }
+
+        /* Info icon next to the tool name */
+        .app-card .card-header .info-icon {
+            width: 18px; /* Slightly smaller icon */
+            height: 18px;
+            fill: currentColor;
+            transition: transform var(--transition-speed);
+            flex-shrink: 0; /* Prevent icon from shrinking */
+        }
+
+        /* Rotate info icon when description is expanded */
+        .app-card.description-expanded .card-header .info-icon {
+            transform: rotate(180deg);
+        }
+
+        .app-card .header-action-icons {
+            display: flex;
+            gap: 8px; /* Reduced space between action icons */
+            flex-shrink: 0;
+        }
+
+        .app-link-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px; /* Smaller icon buttons */
+            height: 32px;
+            background-color: rgba(255, 255, 255, 0.2); /* Slightly less opaque background */
+            border-radius: 50%;
+            color: var(--header-text-color);
+            text-decoration: none;
+            transition: background-color var(--transition-speed), transform 0.1s ease;
+            border: none;
+            padding: 0;
+            outline: none;
+        }
+
+        .app-link-button:hover {
+            background-color: rgba(255, 255, 255, 0.4); /* More opaque on hover */
+            transform: scale(1.05); /* Gentle scale up on hover */
+        }
+
+        .app-link-button svg {
+            width: 18px; /* Smaller SVG icons */
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .app-card .description-content {
+            padding: 0 1.2rem; /* Keep horizontal padding */
+            font-size: 0.9em; /* Slightly smaller font size */
+            color: #666;
+            max-height: 0; /* Hidden by default */
+            opacity: 0; /* Fade out */
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out; /* Include padding in transition */
+            text-align: left;
+            padding-bottom: 0; /* Ensure no padding when collapsed */
+            padding-top: 0; /* Ensure no padding when collapsed */
+        }
+
+        /* Description visible when expanded */
+        .app-card.description-expanded .description-content {
+            max-height: 120px; /* Sufficient height for description */
+            opacity: 1; /* Fade in */
+            padding-top: 1rem; /* Add padding when visible */
+            padding-bottom: 1.2rem; /* Add padding when visible */
+            border-top: 1px solid #f0f0f0; /* Subtle border above description */
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 1.8rem 0; /* Reduced padding for footer */
+            margin-top: 2rem; /* Reduced space above footer */
+            background-color: var(--site-primary-color);
+            color: var(--header-text-color);
+            font-size: 1.2em;
+            box-shadow: 0 -2px 6px var(--card-shadow);
+        }
+
+        footer p {
+            margin: 0.4rem 0;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .container {
+                margin: 1rem auto;
+                padding: 0 0.4rem;
+            }
+            header h1 {
+                font-size: 1.5em;
+            }
+            .category-section {
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+            }
+            .category-section h2 {
+                font-size: 1.8em;
+            }
+            .app-grid {
+                gap: 1.2rem;
+            }
+            .app-card .card-header {
+                font-size: 1.2em;
+                padding: 0.8rem 1rem;
+            }
+            .app-card .description-content {
+                padding: 0 1rem; /* Adjust horizontal padding for smaller screens */
+            }
+            .app-card.description-expanded .description-content {
+                padding-top: 0.8rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 0.5rem 0;
+            }
+            header h1 {
+                font-size: 1.3em;
+            }
+            .container {
+                margin: 1rem auto;
+                padding: 0 0.5rem;
+            }
+            .category-section {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            .category-section h2 {
+                font-size: 1.4em;
+                margin-bottom: 1rem;
+            }
+            .app-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .app-card .card-header {
+                font-size: 1.1em;
+                padding: 0.7rem 0.8rem;
+            }
+            .app-link-button {
+                width: 28px;
+                height: 28px;
+            }
+            .app-link-button svg {
+                width: 14px;
+                height: 14px;
+            }
+            .app-card .card-header .info-icon {
+                width: 16px;
+                height: 16px;
+            }
+            .app-card .description-content {
+                font-size: 0.85em;
+                padding: 0 0.8rem;
+            }
+            .app-card.description-expanded .description-content {
+                padding-top: 0.7rem;
+                padding-bottom: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Web-Apps für die Schule</h1>
+    </header>
+
+    <div class="container">
+        <!-- Section: Für Lernende (Students) - Listed first as requested -->
+        <section class="category-section student-category">
+            <h2>Für Lernende</h2>
+            <div class="app-grid">
+                <div class="app-card">
+                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
+                        <h3>
+                            Taskcards
+                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </h3>
+                        <div class="header-action-icons">
+                            <a href="https://mamrehn.github.io/taskcards/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="description-content">
+                        <p>Ein intuitives Tool zum Erlernen von Unterrichtsinhalten. Hilft Lernenden, Lernkarten zu verwenden und zu erstellen.</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
+                        <h3>
+                            Punkterechner in Note
+                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </h3>
+                        <div class="header-action-icons">
+                            <a href="https://mamrehn.github.io/notenrechner/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="description-content">
+                        <p>Ein vielseitiges Werkzeug zum Berechnen und Verwalten von Noten. Ideal für Schüler, um den Überblick über Leistungen zu behalten.</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
+                        <h3>
+                            Zeugnisbemerkungen
+                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </h3>
+                        <div class="header-action-icons">
+                            <a href="https://mamrehn.github.io/zeugnis/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="description-content">
+                        <p>Unterstützt bei der Erstellung und Verwaltung von Zeugnisinformationen. Erleichtert den Prozess für Schüler.</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
+                        <h3>
+                            DiffieFellows
+                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </h3>
+                        <div class="header-action-icons">
+                            <a href="https://mamrehn.github.io/diffiefellows/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="description-content">
+                        <p>Ein spezifisches Werkzeug für den Unterricht, das oft mit einem direkten Link im Klassenzimmer verwendet wird.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Für Lehrkräfte (Teachers) -->
+        <section class="category-section teacher-category">
+            <h2>Für Lehrkräfte</h2>
+            <div class="app-grid">
+                <div class="app-card">
+                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
+                        <h3>
+                            Dashboard
+                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </h3>
+                        <div class="header-action-icons">
+                            <a href="https://mamrehn.github.io/dashboard/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="description-content">
+                        <p>Ein zentrales Dashboard für Lehrkräfte zum Überblick für die Schülerinnen und Schüler während einer Prüfung.</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
+                        <h3>
+                            Punkterechner in Note
+                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </h3>
+                        <div class="header-action-icons">
+                            <a href="https://mamrehn.github.io/notenrechner/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="description-content">
+                        <p>Ein vielseitiges Werkzeug zum Berechnen und Verwalten von Noten. Ideal für Lehrer, um den Überblick über Leistungen zu behalten.</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
+                        <h3>
+                            Zeugnisbemerkungen
+                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </h3>
+                        <div class="header-action-icons">
+                            <a href="https://mamrehn.github.io/zeugnis/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="description-content">
+                        <p>Unterstützt bei der Erstellung und Verwaltung von Zeugnisinformationen. Erleichtert den Prozess für Lehrer.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><a style="color: white;" href="https://github.com/mamrehn">github.com/mamrehn</a></p>
+        <p>Weitere Projekte folgen...</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Select all card headers, which are now the clickable elements
+            const cardHeaders = document.querySelectorAll('.app-card .card-header');
+
+            cardHeaders.forEach(header => {
+                header.addEventListener('click', (event) => {
+                    // Prevent click from propagating if an icon button within the header was clicked
+                    if (event.target.closest('.app-link-button')) {
+                        return;
+                    }
+
+                    const appCard = header.closest('.app-card');
+                    const descriptionContent = appCard.querySelector('.description-content');
+                    const infoIcon = header.querySelector('.info-icon');
+
+                    // Toggle the 'description-expanded' class on the whole app-card
+                    appCard.classList.toggle('description-expanded');
+
+                    // Update aria-expanded attribute for accessibility
+                    const isExpanded = appCard.classList.contains('description-expanded');
+                    header.setAttribute('aria-expanded', isExpanded);
+
+                    // Update the title attribute of the info icon (tooltip)
+                    if (infoIcon) { // Check if infoIcon exists
+                        if (isExpanded) {
+                            infoIcon.setAttribute('title', 'Beschreibung ausblenden');
+                        } else {
+                            infoIcon.setAttribute('title', 'Beschreibung anzeigen');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
