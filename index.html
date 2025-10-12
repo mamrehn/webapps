@@ -4,43 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web-Apps für die Schule</title>
-    <!-- Google Fonts: Open Sans for a clean, modern look -->
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts: Inter for modern, clean look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for a more sensical and harmonious theme */
+        /* === DESIGN TOKENS (B3 Styleguide) === */
         :root {
-            --site-primary-color: #2c3e50; /* Dark Slate Gray for overall site header/footer */
-            --student-color: #27ae60; /* Emerald Green for student section */
-            --teacher-color: #8e44ad; /* Amethyst for teacher section */
-
-            --secondary-bg-color: #ecf0f1; /* Clouds - very light grey/off-white for sections */
-            --text-color: #34495e; /* Wet Asphalt - dark but soft grey for main text */
-            --header-text-color: #ffffff; /* White for header text */
-            --card-bg: #ffffff; /* White for card backgrounds */
-            --card-shadow: rgba(0, 0, 0, 0.05); /* Even lighter, more subtle shadow */
-            --border-radius: 8px; /* Consistent rounded corners */
-            --transition-speed: 0.3s ease; /* Smooth transitions */
+            /* Primary Colors */
+            --color-primary-500: #2ca02c;
+            --color-primary-600: #248f24;
+            --color-primary-700: #1f7a1f;
+            --color-primary-50: #e8f5e9;
+            
+            /* Semantic Colors */
+            --color-success: #2ca02c;
+            --color-info: #1f77b4;
+            --color-warning: #ff7f0e;
+            --color-error: #d62728;
+            
+            /* Category Colors */
+            --color-student: #2ca02c; /* Green for students */
+            --color-teacher: #8e44ad; /* Purple for teachers */
+            
+            /* Neutral Colors */
+            --color-surface: #ffffff;
+            --color-bg: #f6f7f8;
+            --color-text: #1f2d33;
+            --color-text-muted: #8e98a1;
+            --color-text-light: #6b7280;
+            --color-border: #e3e7ea;
+            
+            /* Spacing (4px base) */
+            --space-1: 4px;
+            --space-2: 8px;
+            --space-3: 12px;
+            --space-4: 16px;
+            --space-5: 20px;
+            --space-6: 24px;
+            --space-8: 32px;
+            
+            /* Typography */
+            --font-family: 'Inter', system-ui, sans-serif;
+            --font-size-sm: 14px;
+            --font-size-base: 15px;
+            --font-size-lg: 18px;
+            --font-size-xl: 24px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --line-height-tight: 1.25;
+            --line-height-normal: 1.5;
+            --line-height-relaxed: 1.75;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            
+            /* Border Radius */
+            --radius: 6px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            
+            /* Transitions */
+            --transition-fast: 150ms;
+            --transition: 200ms;
+            --transition-slow: 300ms;
         }
 
-        /* Base Body Styles */
-        body {
-            font-family: 'Open Sans', sans-serif;
+        /* === GLOBAL RESET === */
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8; /* A very light, clean background */
-            color: var(--text-color);
-            line-height: 1.6;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-bg);
+            color: var(--color-text);
+            line-height: var(--line-height-normal);
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Header Styling */
+        *:focus-visible {
+            outline: 2px solid var(--color-primary-500);
+            outline-offset: 2px;
+        }
+
+        /* === HEADER === */
         header {
-            background-color: var(--site-primary-color);
-            color: var(--header-text-color);
-            padding: 1.0rem 0; /* Reduced padding for header */
+            background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+            color: white;
+            padding: var(--space-4) 0;
             text-align: center;
-            box-shadow: 0 2px 6px var(--card-shadow); /* Subtle shadow */
+            box-shadow: var(--shadow-md);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -48,137 +111,205 @@
 
         header h1 {
             margin: 0;
-            font-size: 2.2em; /* Slightly smaller font size */
-            letter-spacing: 1.2px;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            letter-spacing: 0.5px;
         }
 
-        /* Main Container */
+        /* === MAIN CONTAINER === */
         .container {
-            max-width: 95%; /* Even narrower max width for more compactness */
-            margin: 2rem auto; /* Reduced margin for more vertical space */
-            padding: 0 1rem; /* Reduced padding */
+            max-width: 1200px;
+            margin: var(--space-5) auto;
+            padding: 0 var(--space-4);
         }
 
-        /* Category Section Styling */
-        .category-section {
-            background-color: var(--secondary-bg-color);
-            padding: 1rem; /* Reduced padding for sections */
-            border-radius: var(--border-radius);
-            margin-bottom: 1rem; /* Reduced space between sections */
-            box-shadow: 0 4px 12px var(--card-shadow); /* Slightly more pronounced but still light shadow */
-            border: 1px solid #e0e0e0; /* Light border */
+        /* === FILTER SECTION === */
+        .filter-section {
+            margin-bottom: var(--space-4);
+            display: flex;
+            align-items: center;
+            gap: var(--space-4);
+            flex-wrap: wrap;
         }
 
-        .category-section h2 {
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 1.5rem; /* Reduced space below heading */
-            font-size: 2.2em; /* Slightly smaller font size */
+        .search-container {
             position: relative;
-            padding-bottom: 10px; /* Reduced padding */
+            flex: 1;
+            min-width: 250px;
+            max-width: 400px;
         }
 
-        .category-section h2::after {
-            content: '';
-            display: block;
-            width: 80px; /* Shorter underline */
-            height: 3px; /* Thinner underline */
-            margin: 8px auto 0; /* Reduced margin */
-            border-radius: 2px;
+        .search-input {
+            width: 100%;
+            padding: var(--space-2) var(--space-3) var(--space-2) var(--space-8);
+            font-size: var(--font-size-sm);
+            font-family: var(--font-family);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            background-color: var(--color-surface);
+            color: var(--color-text);
+            transition: all var(--transition-fast);
         }
 
-        /* Specific colors for student category */
-        .student-category h2 {
-            color: var(--student-color);
-        }
-        .student-category h2::after {
-            background: linear-gradient(to right, var(--student-color), #7f8c8d); /* Muted grey for gradient end */
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-primary-500);
+            box-shadow: 0 0 0 3px var(--color-primary-50);
         }
 
-        /* Specific colors for teacher category */
-        .teacher-category h2 {
-            color: var(--teacher-color);
-        }
-        .teacher-category h2::after {
-            background: linear-gradient(to right, var(--teacher-color), #7f8c8d); /* Muted grey for gradient end */
-        }
-
-        /* App Grid Layout */
-        .app-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly smaller min-width for cards */
-            gap: 1.5rem; /* Reduced space between cards */
+        .search-icon {
+            position: absolute;
+            left: var(--space-3);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            fill: var(--color-text-muted);
+            pointer-events: none;
         }
 
-        /* Individual App Card Styling */
-        .app-card {
-            background-color: var(--card-bg);
-            border-radius: var(--border-radius);
-            box-shadow: 0 2px 8px var(--card-shadow); /* Subtle card shadow */
-            overflow: hidden;
-            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .filter-label {
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            color: var(--color-text);
+            white-space: nowrap;
+        }
+
+        .filter-pills {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+        }
+
+        /* === PILLS (from styleguide) === */
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-1);
+            padding: calc(var(--space-1) + 2px) var(--space-3);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            font-family: var(--font-family);
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            user-select: none;
+        }
+
+        .pill:hover {
+            border-color: var(--color-primary-500);
+            background-color: var(--color-primary-50);
+        }
+
+        .pill.active {
+            background-color: var(--color-primary-500);
+            color: white;
+            border-color: var(--color-primary-500);
+        }
+
+        /* === APP LIST === */
+        .app-list {
             display: flex;
             flex-direction: column;
-            border: 1px solid #f0f0f0;
+            gap: var(--space-3);
         }
 
-        .app-card:hover {
-            transform: translateY(-4px); /* Gentle lift effect on hover */
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Slightly more visible shadow on hover */
+        /* === APP ITEM (Table-style row) === */
+        .app-item {
+            background-color: var(--color-surface);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all var(--transition);
+            border: 1px solid var(--color-border);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: start;
+            gap: var(--space-3);
+            padding: var(--space-4);
         }
 
-        .app-card .card-header {
-            color: var(--header-text-color);
-            margin: 0;
-            padding: 1rem 1.2rem; /* Reduced padding */
-            font-size: 1.1em; /* Slightly smaller font size */
-            text-align: left; /* Align text to the left */
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            word-break: break-word;
-            text-shadow: 0 1px 1px rgba(0,0,0,0.05);
+        .app-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary-500);
+        }
+
+        .app-item.hidden {
+            display: none;
+        }
+
+        /* App Content (left side) */
+        .app-content {
             display: flex;
-            justify-content: space-between; /* Space out name and icons */
+            flex-direction: column;
+            gap: var(--space-2);
+            min-width: 0; /* Allow text truncation */
+        }
+
+        .app-header {
+            display: flex;
             align-items: center;
-            cursor: pointer; /* Indicate clickable header */
-            position: relative; /* For the pseudo-element icon */
+            gap: var(--space-2);
+            flex-wrap: wrap;
         }
 
-        /* Card header background for student tools */
-        .student-category .app-card .card-header {
-            background-color: var(--student-color);
-        }
-
-        /* Card header background for teacher tools */
-        .teacher-category .app-card .card-header {
-            background-color: var(--teacher-color);
-        }
-
-        .app-card .card-header h3 {
+        .app-title {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-semibold);
+            color: var(--color-text);
             margin: 0;
-            flex-grow: 1;
+            line-height: var(--line-height-tight);
+        }
+
+        .app-tags {
             display: flex;
+            gap: var(--space-1);
+            flex-wrap: wrap;
+        }
+
+        /* Tag badges */
+        .tag {
+            display: inline-flex;
             align-items: center;
-            gap: 8px; /* Reduced space between title and description icon */
+            padding: calc(var(--space-1)) calc(var(--space-2) + 2px);
+            font-size: 12px;
+            font-weight: var(--font-weight-medium);
+            border-radius: var(--radius);
+            line-height: 1;
         }
 
-        /* Info icon next to the tool name */
-        .app-card .card-header .info-icon {
-            width: 18px; /* Slightly smaller icon */
-            height: 18px;
-            fill: currentColor;
-            transition: transform var(--transition-speed);
-            flex-shrink: 0; /* Prevent icon from shrinking */
+        .tag.student {
+            background-color: #e8f5e9;
+            color: #1b5e20;
+            border: 1px solid var(--color-student);
         }
 
-        /* Rotate info icon when description is expanded */
-        .app-card.description-expanded .card-header .info-icon {
-            transform: rotate(180deg);
+        .tag.teacher {
+            background-color: #f3e5f5;
+            color: #4a148c;
+            border: 1px solid var(--color-teacher);
         }
 
-        .app-card .header-action-icons {
+        .app-description {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-light);
+            line-height: var(--line-height-normal);
+            margin: 0;
+        }
+
+        /* App Actions (right side) */
+        .app-actions {
             display: flex;
-            gap: 8px; /* Reduced space between action icons */
+            gap: var(--space-2);
             flex-shrink: 0;
         }
 
@@ -186,144 +317,131 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 32px; /* Smaller icon buttons */
-            height: 32px;
-            background-color: rgba(255, 255, 255, 0.2); /* Slightly less opaque background */
-            border-radius: 50%;
-            color: var(--header-text-color);
+            width: 36px;
+            height: 36px;
+            background-color: var(--color-primary-500);
+            border-radius: var(--radius);
+            color: white;
             text-decoration: none;
-            transition: background-color var(--transition-speed), transform 0.1s ease;
+            transition: all var(--transition-fast);
             border: none;
-            padding: 0;
-            outline: none;
+            cursor: pointer;
         }
 
         .app-link-button:hover {
-            background-color: rgba(255, 255, 255, 0.4); /* More opaque on hover */
-            transform: scale(1.05); /* Gentle scale up on hover */
+            background-color: var(--color-primary-600);
+            transform: scale(1.05);
+        }
+
+        .app-link-button:active {
+            transform: scale(0.95);
         }
 
         .app-link-button svg {
-            width: 18px; /* Smaller SVG icons */
+            width: 18px;
             height: 18px;
             fill: currentColor;
         }
 
-        .app-card .description-content {
-            padding: 0 1.2rem; /* Keep horizontal padding */
-            font-size: 0.9em; /* Slightly smaller font size */
-            color: #666;
-            max-height: 0; /* Hidden by default */
-            opacity: 0; /* Fade out */
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease-out; /* Include padding in transition */
-            text-align: left;
-            padding-bottom: 0; /* Ensure no padding when collapsed */
-            padding-top: 0; /* Ensure no padding when collapsed */
-        }
-
-        /* Description visible when expanded */
-        .app-card.description-expanded .description-content {
-            max-height: 120px; /* Sufficient height for description */
-            opacity: 1; /* Fade in */
-            padding-top: 1rem; /* Add padding when visible */
-            padding-bottom: 1.2rem; /* Add padding when visible */
-            border-top: 1px solid #f0f0f0; /* Subtle border above description */
-        }
-
-        /* Footer Styling */
+        /* === FOOTER === */
         footer {
             text-align: center;
-            padding: 1.8rem 0; /* Reduced padding for footer */
-            margin-top: 2rem; /* Reduced space above footer */
-            background-color: var(--site-primary-color);
-            color: var(--header-text-color);
-            font-size: 1.2em;
-            box-shadow: 0 -2px 6px var(--card-shadow);
+            padding: var(--space-5) 0;
+            margin-top: var(--space-6);
+            background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+            color: white;
+            font-size: var(--font-size-sm);
+            box-shadow: var(--shadow-md);
         }
 
         footer p {
-            margin: 0.4rem 0;
+            margin: var(--space-2) 0;
+            line-height: var(--line-height-normal);
         }
 
-        /* Responsive Adjustments */
-        @media (max-width: 1150px) {
-            .container {
-                margin: 1rem auto;
-                padding: 0 0.4rem;
-            }
-            header h1 {
-                font-size: 1.5em;
-            }
-            .category-section {
-                padding: 1.5rem;
-                margin-bottom: 1.5rem;
-            }
-            .category-section h2 {
-                font-size: 1.8em;
-            }
-            .app-grid {
-                gap: 1.2rem;
-            }
-            .app-card .card-header {
-                font-size: 1.2em;
-                padding: 0.8rem 1rem;
-            }
-            .app-card .description-content {
-                padding: 0 1rem; /* Adjust horizontal padding for smaller screens */
-            }
-            .app-card.description-expanded .description-content {
-                padding-top: 0.8rem;
-                padding-bottom: 1rem;
-            }
+        footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: opacity var(--transition-fast);
         }
 
+        footer a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* === RESPONSIVE DESIGN === */
         @media (max-width: 768px) {
-            header {
-                padding: 0.5rem 0;
-            }
-            header h1 {
-                font-size: 1.3em;
-            }
             .container {
-                margin: 1rem auto;
-                padding: 0 0.5rem;
+                margin: var(--space-3) auto;
+                padding: 0 var(--space-3);
             }
-            .category-section {
-                padding: 1rem;
-                margin-bottom: 1rem;
+
+            header {
+                padding: var(--space-3) 0;
             }
-            .category-section h2 {
-                font-size: 1.4em;
-                margin-bottom: 1rem;
+
+            header h1 {
+                font-size: var(--font-size-base);
             }
-            .app-grid {
+
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: var(--space-3);
+            }
+
+            .search-container {
+                max-width: 100%;
+                min-width: 100%;
+            }
+
+            .filter-group {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--space-2);
+            }
+
+            .app-item {
                 grid-template-columns: 1fr;
-                gap: 1rem;
+                padding: var(--space-3);
             }
-            .app-card .card-header {
-                font-size: 1.1em;
-                padding: 0.7rem 0.8rem;
+
+            .app-actions {
+                width: 100%;
+                justify-content: flex-end;
             }
+
+            .app-title {
+                font-size: var(--font-size-sm);
+            }
+
+            footer {
+                padding: var(--space-3) 0;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .app-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
             .app-link-button {
-                width: 28px;
-                height: 28px;
+                width: 32px;
+                height: 32px;
             }
+
             .app-link-button svg {
-                width: 14px;
-                height: 14px;
-            }
-            .app-card .card-header .info-icon {
                 width: 16px;
                 height: 16px;
             }
-            .app-card .description-content {
-                font-size: 0.85em;
-                padding: 0 0.8rem;
-            }
-            .app-card.description-expanded .description-content {
-                padding-top: 0.7rem;
-                padding-bottom: 0.8rem;
+
+            .pill {
+                font-size: 12px;
+                padding: calc(var(--space-1)) calc(var(--space-2));
             }
         }
     </style>
@@ -334,170 +452,235 @@
     </header>
 
     <div class="container">
-        <!-- Section: Für Lernende (Students) - Listed first as requested -->
-        <section class="category-section student-category">
-            <h2>Für Lernende</h2>
-            <div class="app-grid">
-                <div class="app-card">
-                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
-                        <h3>
-                            Taskcards
-                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        </h3>
-                        <div class="header-action-icons">
-                            <a href="https://mamrehn.github.io/taskcards/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="description-content">
-                        <p>Ein intuitives Tool zum Erlernen von Unterrichtsinhalten. Hilft Lernenden, Lernkarten zu verwenden und zu erstellen.</p>
-                    </div>
-                </div>
-                <div class="app-card">
-                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
-                        <h3>
-                            Punkte zu Note
-                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        </h3>
-                        <div class="header-action-icons">
-                            <a href="https://mamrehn.github.io/notenrechner/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="description-content">
-                        <p>Ein Werkzeug zum Berechnen von Noten auf Basis von Punkten und dem IHK Notenschlüssel.</p>
-                    </div>
-                </div>
-                <div class="app-card">
-                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
-                        <h3>
-                            Zeugnisbemerkungen
-                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        </h3>
-                        <div class="header-action-icons">
-                            <a href="https://mamrehn.github.io/zeugnis/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="description-content">
-                        <p>Unterstützt bei der Erstellung und Verwaltung von Zeugnisinformationen. Erleichtert den Prozess für Schüler.</p>
-                    </div>
-                </div>
-                <div class="app-card">
-                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
-                        <h3>
-                            DiffieFellows
-                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        </h3>
-                        <div class="header-action-icons">
-                            <a href="https://mamrehn.github.io/diffiefellows/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="description-content">
-                        <p>Ein spezifisches Werkzeug für den Unterricht, das oft mit einem direkten Link im Klassenzimmer verwendet wird.</p>
-                    </div>
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <!-- Search Input -->
+            <div class="search-container">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+                <input type="text" class="search-input" id="searchInput" placeholder="Suche nach Name oder Beschreibung...">
+            </div>
+            
+            <!-- Filter Pills -->
+            <div class="filter-group">
+                <span class="filter-label">Filtern:</span>
+                <div class="filter-pills">
+                    <button class="pill active" data-filter="all">Alle</button>
+                    <button class="pill" data-filter="student">Lernende</button>
+                    <button class="pill" data-filter="teacher">Lehrkräfte</button>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Section: Für Lehrkräfte (Teachers) -->
-        <section class="category-section teacher-category">
-            <h2>Für Lehrkräfte</h2>
-            <div class="app-grid">
-                <div class="app-card">
-                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
-                        <h3>
-                            Dashboard
-                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        </h3>
-                        <div class="header-action-icons">
-                            <a href="https://mamrehn.github.io/dashboard/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                            </a>
+        <!-- App List -->
+        <div class="app-list">
+            
+            <!-- Git Lernumgebung -->
+            <div class="app-item" data-tags="student teacher">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">Git Lernumgebung</h2>
+                        <div class="app-tags">
+                            <span class="tag student">Für Lernende</span>
+                            <span class="tag teacher">Für Lehrkräfte</span>
                         </div>
                     </div>
-                    <div class="description-content">
-                        <p>Ein zentrales Dashboard für Lehrkräfte zum Überblick für die Schülerinnen und Schüler während einer Prüfung.</p>
-                    </div>
+                    <p class="app-description">Interaktive Git Lernumgebung als Web-App. Risikofreies angeleitetes Lernerlebnis in der Online Konsole.</p>
                 </div>
-                <div class="app-card">
-                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
-                        <h3>
-                            Punkte zu Note
-                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        </h3>
-                        <div class="header-action-icons">
-                            <a href="https://mamrehn.github.io/notenrechner/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="description-content">
-                        <p>Ein Werkzeug zum Berechnen von Noten auf Basis von Punkten und dem IHK Notenschlüssel.</p>
-                    </div>
-                </div>
-                <div class="app-card">
-                    <div class="card-header" role="button" aria-expanded="false" tabindex="0">
-                        <h3>
-                            Zeugnisbemerkungen
-                            <svg class="info-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                        </h3>
-                        <div class="header-action-icons">
-                            <a href="https://mamrehn.github.io/zeugnis/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="description-content">
-                        <p>Unterstützt bei der Erstellung und Verwaltung von Zeugnisinformationen. Erleichtert den Prozess für Lehrer.</p>
-                    </div>
+                <div class="app-actions">
+                    <a href="https://mamrehn.github.io/b3_git_webapp/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
                 </div>
             </div>
-        </section>
+
+            <!-- B3 Style-Guide -->
+            <div class="app-item" data-tags="teacher">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">B3 Style-Guide</h2>
+                        <div class="app-tags">
+                            <span class="tag teacher">Für Lehrkräfte</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Gemeinsame Vorlage für Lehrkräfte der B3 Berufsschule für Web-App Layout-Elemente. Einheitliches Design-System mit Komponenten, Farben und Best Practices.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://laughing-adventure-ez1ekp3.pages.github.io/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Berufsschulpflicht Check -->
+            <div class="app-item" data-tags="student teacher">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">Berufsschulpflicht Check für Religion / Ethik / +R</h2>
+                        <div class="app-tags">
+                            <span class="tag student">Für Lernende</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Prüfung der Berufsschulpflicht und Religion/Ethik-Befreiung für Bayern.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://improved-adventure-l13v177.pages.github.io/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Taskcards -->
+            <div class="app-item" data-tags="student">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">Taskcards</h2>
+                        <div class="app-tags">
+                            <span class="tag student">Für Lernende</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Ein intuitives Tool zum Erlernen von Unterrichtsinhalten. Hilft Lernenden, Lernkarten zu verwenden und zu erstellen.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://mamrehn.github.io/taskcards/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <!-- Punkte zu Note -->
+            <div class="app-item" data-tags="student teacher">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">Punkte zu Note</h2>
+                        <div class="app-tags">
+                            <span class="tag student">Für Lernende</span>
+                            <span class="tag teacher">Für Lehrkräfte</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Ein Werkzeug zum Berechnen von Noten auf Basis von Punkten und dem IHK Notenschlüssel.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://mamrehn.github.io/notenrechner/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Zeugnisbemerkungen -->
+            <div class="app-item" data-tags="student teacher">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">Zeugnisbemerkungen</h2>
+                        <div class="app-tags">
+                            <span class="tag student">Für Lernende</span>
+                            <span class="tag teacher">Für Lehrkräfte</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Unterstützt bei der Erstellung und Verwaltung von Zeugnisinformationen. Erleichtert den Prozess für Lehrkräfte und Lernende.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://mamrehn.github.io/zeugnis/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- DiffieFellows -->
+            <div class="app-item" data-tags="student">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">DiffieFellows</h2>
+                        <div class="app-tags">
+                            <span class="tag student">Für Lernende</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Ein spezifisches Werkzeug für den Unterricht, das oft mit einem direkten Link im Klassenzimmer verwendet wird.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://mamrehn.github.io/diffiefellows/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dashboard -->
+            <div class="app-item" data-tags="teacher">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">Dashboard</h2>
+                        <div class="app-tags">
+                            <span class="tag teacher">Für Lehrkräfte</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Ein zentrales Dashboard für Lehrkräfte zum Überblick für die Schülerinnen und Schüler während einer Prüfung.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://mamrehn.github.io/dashboard/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
     </div>
 
     <footer>
-        <p><a style="color: white;" href="https://github.com/mamrehn">github.com/mamrehn</a></p>
+        <p><a href="https://github.com/mamrehn">github.com/mamrehn</a></p>
         <p>Weitere Projekte folgen...</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Select all card headers, which are now the clickable elements
-            const cardHeaders = document.querySelectorAll('.app-card .card-header');
+            // Elements
+            const filterPills = document.querySelectorAll('.pill[data-filter]');
+            const appItems = document.querySelectorAll('.app-item');
+            const searchInput = document.getElementById('searchInput');
+            
+            let currentFilter = 'all';
+            let currentSearch = '';
 
-            cardHeaders.forEach(header => {
-                header.addEventListener('click', (event) => {
-                    // Prevent click from propagating if an icon button within the header was clicked
-                    if (event.target.closest('.app-link-button')) {
-                        return;
-                    }
-
-                    const appCard = header.closest('.app-card');
-                    const descriptionContent = appCard.querySelector('.description-content');
-                    const infoIcon = header.querySelector('.info-icon');
-
-                    // Toggle the 'description-expanded' class on the whole app-card
-                    appCard.classList.toggle('description-expanded');
-
-                    // Update aria-expanded attribute for accessibility
-                    const isExpanded = appCard.classList.contains('description-expanded');
-                    header.setAttribute('aria-expanded', isExpanded);
-
-                    // Update the title attribute of the info icon (tooltip)
-                    if (infoIcon) { // Check if infoIcon exists
-                        if (isExpanded) {
-                            infoIcon.setAttribute('title', 'Beschreibung ausblenden');
-                        } else {
-                            infoIcon.setAttribute('title', 'Beschreibung anzeigen');
-                        }
+            // Function to apply both filters
+            function applyFilters() {
+                appItems.forEach(item => {
+                    const tags = item.dataset.tags;
+                    const title = item.querySelector('.app-title').textContent.toLowerCase();
+                    const description = item.querySelector('.app-description').textContent.toLowerCase();
+                    
+                    // Check category filter
+                    const matchesFilter = currentFilter === 'all' || tags.includes(currentFilter);
+                    
+                    // Check search filter
+                    const matchesSearch = currentSearch === '' || 
+                                         title.includes(currentSearch) || 
+                                         description.includes(currentSearch);
+                    
+                    // Show only if both conditions are met
+                    if (matchesFilter && matchesSearch) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
                     }
                 });
+            }
+
+            // Filter pill functionality
+            filterPills.forEach(pill => {
+                pill.addEventListener('click', () => {
+                    // Update active state
+                    filterPills.forEach(p => p.classList.remove('active'));
+                    pill.classList.add('active');
+                    
+                    // Update current filter
+                    currentFilter = pill.dataset.filter;
+                    applyFilters();
+                });
+            });
+
+            // Search input functionality
+            searchInput.addEventListener('input', (e) => {
+                currentSearch = e.target.value.toLowerCase().trim();
+                applyFilters();
             });
         });
     </script>
