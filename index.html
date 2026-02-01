@@ -299,6 +299,29 @@
             border: 1px solid var(--color-teacher);
         }
 
+        .tag.coming-soon {
+            background-color: #fff3e0;
+            color: #e65100;
+            border: 1px solid #ff9800;
+        }
+
+        /* Coming Soon / Disabled state */
+        .app-item.coming-soon {
+            opacity: 0.7;
+        }
+
+        .app-item.coming-soon .app-link-button {
+            background-color: var(--color-text-muted);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .app-item.coming-soon:hover {
+            transform: none;
+            box-shadow: var(--shadow-sm);
+            border-color: var(--color-border);
+        }
+
         .app-description {
             font-size: var(--font-size-sm);
             color: var(--color-text-light);
@@ -654,6 +677,79 @@
                     <a href="https://mamrehn.github.io/dashboard/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
                     </a>
+                </div>
+            </div>
+
+            <!-- 3D Netzwerkverkabelung -->
+            <div class="app-item" data-tags="student">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">Interaktive 3D Netzwerkverkabelung</h2>
+                        <div class="app-tags">
+                            <span class="tag student">Für Lernende</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Interaktives 3D-Lernspiel zur korrekten Belegung einer Netzwerkdose nach dem T568A-Standard. Gestufte Hilfen unterstützen beim Erlernen der LSA-Klemmen Verkabelung.</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://mamrehn.github.io/b3D/ethernet_cabeling/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- piB3 Roboter Steuerung -->
+            <div class="app-item" data-tags="student teacher">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">piB3 Roboter Steuerung</h2>
+                        <div class="app-tags">
+                            <span class="tag student">Für Lernende</span>
+                            <span class="tag teacher">Für Lehrkräfte</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Python-Bibliothek für die Steuerung des pib Roboters. Ermöglicht Steuerung der Gelenke, inverse Kinematik und nahtlosen Wechsel zwischen Webots-Simulation und echtem Roboter. Ebenso Handlung von: RGB Kamera, AI Kamera, Mikrofon und Lautsprecher (Sprache und Text2Speech).</p>
+                </div>
+                <div class="app-actions">
+                    <a href="https://mamrehn.github.io/pib3/" class="app-link-button" target="_blank" rel="noopener noreferrer" title="App starten">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interaktives Lernsystem mit lokalem Dual-LLM (Coming Soon) -->
+            <div class="app-item coming-soon" data-tags="student teacher">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">Interaktives Lernsystem mit lokalem Dual-LLM</h2>
+                        <div class="app-tags">
+                            <span class="tag coming-soon">Coming Soon</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Simulierte Gespräche mit einem interaktiven Lernsystem mit lokalen Sprachmodellen für personalisiertes, datenschutzkonformes Lernen ohne Cloud-Anbindung.</p>
+                </div>
+                <div class="app-actions">
+                    <span class="app-link-button" title="Demnächst verfügbar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Coode Vibes (Coming Soon) -->
+            <div class="app-item coming-soon" data-tags="student">
+                <div class="app-content">
+                    <div class="app-header">
+                        <h2 class="app-title">Coode Vibes</h2>
+                        <div class="app-tags">
+                            <span class="tag coming-soon">Coming Soon</span>
+                        </div>
+                    </div>
+                    <p class="app-description">Vibe Coding Lernumgebung für einen spielerischen Einstieg in die Programmierung mittels modernem Vibe Coding.</p>
+                </div>
+                <div class="app-actions">
+                    <span class="app-link-button" title="Demnächst verfügbar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                    </span>
                 </div>
             </div>
 
