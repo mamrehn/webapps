@@ -48,6 +48,11 @@
   gap: var(--space-4);
 }
 
+/* Head: pictogram + title (STYLEGUIDE § 5.7); the body's gap spaces it */
+.app-card-body > .card-header {
+  margin-bottom: 0;
+}
+
 .app-card-tags {
   display: flex;
   flex-wrap: wrap;

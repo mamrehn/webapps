@@ -1,6 +1,6 @@
 /* ================================================================
    B3 Schulportal Styleguide — style.css
-   Version 6.1 · light + dark · school blue + IT green
+   Version 6.2 · light + dark · school blue + IT green
 
    The one stylesheet for standalone B3 web apps. Documentation,
    markup contracts and rules: STYLEGUIDE.md. Living demo: index.html.
@@ -807,6 +807,58 @@ a.app-brand:hover {
   margin: 0;
   padding: var(--space-4) var(--space-5);
   border-bottom: 1px solid var(--color-border);
+}
+
+/* --- Pictograms (STYLEGUIDE § 5.7) --------------------------------
+   A small drawing of how a tool works, so the tiles of a catalog can
+   be told apart at a glance. Not an icon tile: no box and no tint
+   behind it — it is drawn on the panel like a figure in a handout.
+   48 × 48 grid, one stroke weight. Ink draws the object, .muted the
+   context, one or two chart hues what the tool does. */
+.pictogram {
+  flex-shrink: 0;
+  width: 3.5rem;
+  height: 3.5rem;
+  color: var(--color-text);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Hues: the chart palette (≥ 3:1 on surface in both themes) */
+.pictogram .muted   { color: var(--color-text-muted); }
+.pictogram .blue    { color: var(--chart-1); }
+.pictogram .orange  { color: var(--chart-2); }
+.pictogram .teal    { color: var(--chart-3); }
+.pictogram .brown   { color: var(--chart-4); }
+.pictogram .magenta { color: var(--chart-5); }
+.pictogram .violet  { color: var(--chart-6); }
+
+/* Fills keep the outline, so filled and open shapes line up */
+.pictogram .solid  { fill: currentColor; }
+.pictogram .tint   { fill: currentColor; fill-opacity: 0.16; }
+.pictogram .paper  { fill: var(--color-surface); }  /* covers what lies behind */
+.pictogram .wash   { fill: var(--color-hover); }    /* neutral area */
+.pictogram .dotted { stroke-dasharray: 0 4; }       /* round dots */
+
+/* Pictogram first in a card header: drawing, then title — side by side */
+.card-header:has(> .pictogram:first-child) {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+/* The same catalog as a table: .small in the row header, next to the name */
+.pictogram.small {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.pictogram-label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
 }
 
 /* ================================================================
@@ -3851,6 +3903,25 @@ html.display-mode {
 
   .switch input::before {
     background: CanvasText;
+  }
+
+  /* Pictograms keep their drawing; the hues become text color */
+  .pictogram {
+    forced-color-adjust: none;
+    color: CanvasText;
+  }
+
+  .pictogram [class] {
+    color: CanvasText;
+  }
+
+  .pictogram .paper,
+  .pictogram .wash {
+    fill: Canvas;
+  }
+
+  .pictogram .tint {
+    fill: none;
   }
 }
 

@@ -4,6 +4,7 @@
   const apps = window.APPS || [];
   const levels = window.MATURITY_LEVELS || [];
   const effortData = window.EFFORTS || { apps: {} };
+  const pictograms = window.PICTOGRAMS || {};
   const NBSP = ' ';
   const AUDIENCE = { student: 'Lernende', teacher: 'Lehrkräfte' };
   const VIEW_KEY = 'webapps-view';
@@ -64,6 +65,12 @@
     return meter;
   }
 
+  // Pictogram (STYLEGUIDE § 5.7) — decorative, the name next to it carries the meaning
+  function pictogram(app, variant = '') {
+    const markup = pictograms[app.id];
+    return markup ? `<svg class="pictogram ${variant}" viewBox="0 0 48 48" aria-hidden="true" focusable="false">${markup}</svg>` : '';
+  }
+
   function openLink(app, className, href = app.url) {
     const link = el('a', className);
     link.href = href;
@@ -85,10 +92,14 @@
     card.setAttribute('aria-labelledby', titleId);
     const body = el('div', 'app-card-body');
 
-    const head = el('div');
+    // Pictogram left of the title: tells the tiles apart at a glance
+    const head = el('div', 'card-header');
+    head.innerHTML = pictogram(app);
+    const heading = el('div');
     const title = el(headingTag, 'card-title', app.title);
     title.id = titleId;
-    head.append(title, el('p', 'card-subtitle', app.kind));
+    heading.append(title, el('p', 'card-subtitle', app.kind));
+    head.append(heading);
 
     const tags = el('div', 'app-card-tags');
     app.audience.forEach((a) => tags.append(audienceBadge(a)));
@@ -167,24 +178,30 @@
 
     const name = el('th');
     name.scope = 'row';
+    const label = el('span', 'pictogram-label');
+    label.innerHTML = pictogram(app, 'small');
+    const text = el('span');
     if (app.url) {
       const link = openLink(app);
       link.textContent = app.title;
       link.append(el('span', 'visually-hidden', ' (neues Fenster)'));
-      name.append(link);
+      text.append(link);
       if (app.install) {
         const install = openLink(app, 'install-link', app.install);
         install.textContent = 'Installieren';
         install.append(el('span', 'visually-hidden', `: ${app.title} (Userscript, neues Fenster)`));
-        name.append(' ', install);
+        text.append(' ', install);
       }
     } else {
-      name.append(app.title, ' ', el('span', 'badge tag', 'In Entwicklung'));
+      text.append(app.title, ' ', el('span', 'badge tag', 'In Entwicklung'));
     }
+    label.append(text);
+    name.append(label);
 
+    // Bar and level name only — the exact value is in the card's „Details“
     const maturity = el('td');
     const cell = el('span', 'maturity-cell');
-    cell.append(maturityMeter(app.maturity), el('strong', '', maturityText(app.maturity)), ` ${level.name}`);
+    cell.append(maturityMeter(app.maturity), level.name);
     maturity.append(cell);
 
     const audience = el('td');

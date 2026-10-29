@@ -32,10 +32,10 @@ window.EFFORTS = {
       "last": "2026-10-02"
     },
     "styleguide": {
-      "hours": 6.56,
-      "sessions": 10,
+      "hours": 7.22,
+      "sessions": 12,
       "days": 7,
-      "commits": 20,
+      "commits": 22,
       "first": "2025-10-04",
       "last": "2026-10-29"
     },
@@ -88,10 +88,10 @@ window.EFFORTS = {
       "last": "2026-10-22"
     },
     "webuntis-lehrstoff": {
-      "hours": 12.08,
-      "sessions": 19,
+      "hours": 14.01,
+      "sessions": 22,
       "days": 9,
-      "commits": 39,
+      "commits": 47,
       "first": "2026-03-17",
       "last": "2026-10-29"
     },

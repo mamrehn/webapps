@@ -10,7 +10,8 @@
    installNote  what installing needs, shown under „Details“
    summary   one short sentence shown on the tile; omit if the
              description is already that short
-   description  the full text, shown under „Details“                   */
+   description  the full text, shown under „Details“
+   The tile's pictogram lives in pictograms.js under the same id.     */
 
 window.MATURITY_LEVELS = [
   { level: 1, name: 'Prototyp', text: 'Erste Alpha: Die Idee ist umgesetzt, vieles ist noch unfertig und kann sich ändern.' },
@@ -28,8 +29,8 @@ window.APPS = [
     audience: ['student', 'teacher'],
     maturity: 4.5,
     url: 'https://mamrehn.github.io/pib3/',
-    summary: 'Steuert den pib-Roboter mit Python – in der Webots-Simulation und am echten Roboter.',
-    description: 'Python-Bibliothek für die Steuerung des pib Roboters. Ermöglicht Steuerung der Gelenke, inverse Kinematik und nahtlosen Wechsel zwischen Webots-Simulation und echtem Roboter. Weitere Features: RGB Kamera, AI Kamera, Mikrofon und Lautsprecher (Sprache und Text2Speech).'
+    summary: 'Steuert den humanoiden Roboter pib mit Python – den echten und seinen digitalen Zwilling in der Webots-Simulation.',
+    description: 'Python-Bibliothek für den humanoiden Roboter pib, einen Torso mit Armen und KI-Kamera im Kopf. Sie steuert die Gelenke, berechnet die inverse Kinematik und wechselt nahtlos zwischen dem echten Roboter und seinem digitalen Zwilling in der Webots-Physiksimulation. Dazu kommen RGB- und KI-Kamera, Mikrofon und Lautsprecher (Sprache und Text-to-Speech).'
   },
   {
     id: 'flashcards',
@@ -132,19 +133,19 @@ window.APPS = [
     install: 'https://github.com/B3-AWP/b3_enhance_webuntis/raw/refs/heads/main/webuntis-lehrstoff-helper.user.js',
     installNote: 'Mit Violentmonkey oder Tampermonkey, angemeldet bei GitHub (privates Repository).',
     summary: 'Lehrstoff, Abwesenheiten und Erinnerungen in WebUntis schneller erledigen.',
-    description: 'Jahresüberblick über alle deine Kurse, (halb-)automatisches Ausfüllen der Lehrstoff-Einträge mit Rückgängig-Funktion, offene Abwesenheitskontrollen, eine Anwesenheitstabelle pro Klasse mit Hinweisen auf auffällige Fehlzeitenmuster, Erinnerungen über den ByCS-Messenger (das Skript füllt jeden Chat vor, du drückst nur noch Enter) und aus mebis importierbare Pläne. Meldet, wenn auf GitHub eine neue Version bereitsteht.'
+    description: 'Jahresüberblick über alle deine Kurse, (halb-)automatisches Ausfüllen der Lehrstoff-Einträge mit Rückgängig-Funktion, offene Abwesenheitskontrollen, eine Anwesenheitstabelle pro Klasse mit Hinweisen auf auffällige Fehlzeitenmuster, Erinnerungen über den ByCS-Messenger (das Skript füllt jeden Chat vor, du drückst nur noch Enter), aus mebis importierbare Pläne und ein Stundenkonto mit den Plus- und Minusstunden des Schuljahres. Meldet, wenn auf GitHub eine neue Version bereitsteht.'
   },
   {
     id: 'webuntis-raeume',
-    title: 'WebUntis Räume für Einzelarbeit',
+    title: 'WebUntis Räume für Gruppenarbeit',
     kind: 'Userscript',
     audience: ['teacher'],
     maturity: 5,
     url: 'https://github.com/B3-AWP/b3_enhance_webuntis',
     install: 'https://github.com/B3-AWP/b3_enhance_webuntis/raw/refs/heads/main/webuntis-room-labels.user.js',
     installNote: 'Mit Violentmonkey oder Tampermonkey, angemeldet bei GitHub (privates Repository).',
-    summary: 'Zeigt bei der Raumbuchung in WebUntis, welche Räume sich für Einzelarbeit eignen.',
-    description: 'Hebt auf der Seite zur Raumbuchung in WebUntis die Räume hervor, die sich für selbstständige Einzelarbeit von Lernenden eignen.'
+    summary: 'Zeigt bei der Raumbuchung in WebUntis, welche freien Räume sich für eine Kleingruppe eignen.',
+    description: 'Für Gruppenarbeit im eigenen Raum: Auf der Seite zur Raumbuchung in WebUntis siehst du sofort, wo eine Kleingruppe von Lernenden selbstständig arbeiten kann – still oder im Gespräch. Geeignete Räume, die zur gewählten Zeit frei sind, bekommen „★ geeignet“ und stehen oben in der Liste; belegte und ungeeignete Räume treten zurück.'
   },
   {
     id: 'subnetting',
@@ -187,7 +188,8 @@ window.APPS = [
     maturity: 5,
     compact: true,
     url: 'https://mamrehn.github.io/diffiefellows/',
-    description: 'Ein spezifisches Werkzeug für den Unterricht, das oft mit einem direkten Link im Klassenzimmer verwendet wird.'
+    summary: 'Simuliert einen Man-in-the-Middle-Angriff per „Evil Twin“ im WLAN: gleiche Adresse, doch die halbe Klasse bekommt ein anderes PDF.',
+    description: 'Simulation eines Man-in-the-Middle-Angriffs über einen „Evil Twin“ im WLAN: Alle rufen dieselbe Adresse auf und laden die „Speisekarte“ als PDF herunter – doch die Hälfte der Klasse erhält eine andere Datei als der Rest. Welche ein Gerät bekommt, entscheidet ein Fingerabdruck des Browsers; beim erneuten Laden bleibt es dieselbe.'
   },
   {
     id: 'work-tracker',
