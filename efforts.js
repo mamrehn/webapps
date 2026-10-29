@@ -87,11 +87,11 @@ window.EFFORTS = {
       "first": "2026-02-10",
       "last": "2026-10-22"
     },
-    "webuntis-lehrstoff": {
-      "hours": 14.01,
-      "sessions": 22,
+    "webuntis-helfer": {
+      "hours": 16.02,
+      "sessions": 23,
       "days": 9,
-      "commits": 47,
+      "commits": 54,
       "first": "2026-03-17",
       "last": "2026-10-29"
     },

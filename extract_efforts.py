@@ -48,7 +48,7 @@ APP_SOURCES = {
     "dashboard": ["dashboard"],
     "mebis-sync": ["b3_enhance_mebis"],
     "mebis-quiz-pdf": ["b3_print_mebis_quiz_results"],
-    "webuntis-lehrstoff": [("b3_violentmonkey_webuntis", "webuntis-lehrstoff-helper*")],
+    "webuntis-helfer": [("b3_violentmonkey_webuntis", "webuntis-lehrstoff-helper*", "webuntis-helper*")],
     "webuntis-raeume": [("b3_violentmonkey_webuntis", "webuntis-room-labels*")],
     "subnetting": ["b3_ipv4_subnetting"],
     "berufsschulpflicht": ["b3_rel_eth_pr"],

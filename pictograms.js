@@ -125,7 +125,7 @@ window.PICTOGRAMS = {
     <path class="muted" d="M8 27h5M8 33h12M8 37h8M28 27h5M28 33h12M28 37h8"/>`,
 
   // Lesson entries filled in down the week, one check still open
-  'webuntis-lehrstoff': `
+  'webuntis-helfer': `
     <rect class="paper" x="5" y="7" width="38" height="35" rx="2"/>
     <path d="M5 14h38M14 4v6M34 4v6"/>
     <rect class="solid teal" x="10" y="19" width="4" height="4" rx=".5"/>

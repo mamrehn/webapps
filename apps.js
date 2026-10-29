@@ -124,16 +124,16 @@ window.APPS = [
     description: 'Wandelt einen mebis-ZIP-Export mit Quiz-Abgaben (Abgabe*.html) in druckfertige PDFs um: zwei A4-Seiten pro Querformat-Blatt, Notenkasten nach IHK-Schlüssel und Punkteliste zum Einfügen in Excel.'
   },
   {
-    id: 'webuntis-lehrstoff',
-    title: 'WebUntis Lehrstoff-Helfer',
+    id: 'webuntis-helfer',
+    title: 'WebUntis-Helfer',
     kind: 'Userscript',
     audience: ['teacher'],
     maturity: 3,
     url: 'https://github.com/B3-AWP/b3_enhance_webuntis',
-    install: 'https://github.com/B3-AWP/b3_enhance_webuntis/raw/refs/heads/main/webuntis-lehrstoff-helper.user.js',
+    install: 'https://github.com/B3-AWP/b3_enhance_webuntis/raw/refs/heads/main/webuntis-helper.user.js',
     installNote: 'Mit Violentmonkey oder Tampermonkey, angemeldet bei GitHub (privates Repository).',
-    summary: 'Lehrstoff, Abwesenheiten und Erinnerungen in WebUntis schneller erledigen.',
-    description: 'Jahresüberblick über alle deine Kurse, (halb-)automatisches Ausfüllen der Lehrstoff-Einträge mit Rückgängig-Funktion, offene Abwesenheitskontrollen, eine Anwesenheitstabelle pro Klasse mit Hinweisen auf auffällige Fehlzeitenmuster, Erinnerungen über den ByCS-Messenger (das Skript füllt jeden Chat vor, du drückst nur noch Enter), aus mebis importierbare Pläne und ein Stundenkonto mit den Plus- und Minusstunden des Schuljahres. Meldet, wenn auf GitHub eine neue Version bereitsteht.'
+    summary: 'Lehrstoff ausfüllen, Anwesenheit im Blick behalten und das Stundenkonto vorausberechnen – direkt in WebUntis.',
+    description: 'Lehrstoff: Jahresübersicht aller deiner Kurse, Vorschläge aus den anderen Klassen des Kurses, dem Kursplan (aus mebis importierbar) und dem Vorjahr, (halb-)automatisches Ausfüllen offener Stunden mit Rückgängig-Funktion. Anwesenheit: eine Tabelle pro Klasse mit Fehltagen, Verspätungen, fehlenden Attesten, Prüfungen und Hinweisen auf auffällige Fehlzeitenmuster, Export für Excel und die ASV; Erinnerungen übergibt das Skript an den ByCS-Messenger (es füllt jeden Chat vor, du drückst nur noch Enter). Stundenkonto: Plus- und Minusstunden des Schuljahres mit Übertrag aus dem Vorjahr. Frühere Schuljahre bleiben erhalten, auch wenn WebUntis sie nicht mehr anbietet, und lassen sich als .ics-Datei sichern und wieder einlesen. Meldet, wenn auf GitHub eine neue Version bereitsteht.'
   },
   {
     id: 'webuntis-raeume',
