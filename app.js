@@ -37,6 +37,21 @@
 
   const sessionsText = (n) => `${n}${NBSP}${n === 1 ? 'Sitzung' : 'Sitzungen'}`;
 
+  // How the effort is estimated — shown on mouseover, with the parameters
+  // extract_efforts.py used (effort_config.json)
+  const model = effortData.model;
+  const EFFORT_HINT = model
+    ? `Geschätzt aus der Git-Historie: Eine Sitzung reicht vom ersten bis zum letzten Commit, dazu kommen ${model.pre_streak_minutes}${NBSP}Minuten Arbeit davor und ${model.post_streak_minutes}${NBSP}Minuten danach. Eine Sitzung endet, wenn ${model.streak_threshold_minutes}${NBSP}Minuten lang kein weiterer Commit folgt.`
+    : '';
+
+  function explainEffort(node) {
+    if (EFFORT_HINT) {
+      node.title = EFFORT_HINT;
+      node.classList.add('hint');
+    }
+    return node;
+  }
+
   /* --- DOM helpers ----------------------------------------------- */
   function el(tag, className, text) {
     const node = document.createElement(tag);
@@ -122,7 +137,7 @@
     facts.append(
       el('dt', '', 'Reifegrad'),
       el('dd', '', `${maturityText(app.maturity)} von 5 – ${level.name}`),
-      el('dt', '', 'Entwicklungszeit'),
+      explainEffort(el('dt', '', 'Entwicklungszeit')),
       el('dd', '', effort ? `${formatHours(effort.hours)} in ${sessionsText(effort.sessions)}` : 'keine Daten'));
     if (app.installNote) facts.append(el('dt', '', 'Installation'), el('dd', '', app.installNote));
 
@@ -275,6 +290,12 @@
   }
 
   function renderStatic() {
+    // The hidden table caption reads it out; visible labels get a mouseover
+    if (EFFORT_HINT) document.querySelectorAll('[data-effort-hint]').forEach((node) => {
+      if (node.tagName === 'CAPTION') node.append(`. ${EFFORT_HINT}`);
+      else explainEffort(node);
+    });
+
     const effortsOf = apps.map(effortOf).filter(Boolean);
     const totalHours = effortsOf.reduce((sum, e) => sum + e.hours, 0);
     const totalSessions = effortsOf.reduce((sum, e) => sum + e.sessions, 0);

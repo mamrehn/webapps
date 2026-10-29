@@ -63,7 +63,7 @@
                         <span class="metric-trend"><span class="metric-context">Reifegrad 4 oder 5</span></span>
                     </div>
                     <div class="metric">
-                        <span class="metric-label">Entwicklungszeit gesamt</span>
+                        <span class="metric-label"><span data-effort-hint>Entwicklungszeit gesamt</span></span>
                         <span class="metric-value"><span id="kpiHours">–</span><span class="metric-unit">h</span></span>
                         <span class="metric-trend"><span class="metric-context" id="kpiHoursContext"></span></span>
                     </div>
@@ -125,15 +125,15 @@
                 <div class="card flush" id="appTableCard" hidden>
                     <div class="table-scroll">
                         <table class="data-table" id="appTable">
-                            <caption class="visually-hidden">Apps mit Reifegrad und geschätzter Entwicklungszeit</caption>
+                            <caption class="visually-hidden" data-effort-hint>Apps mit Reifegrad und geschätzter Entwicklungszeit</caption>
                             <thead>
                                 <tr>
                                     <th scope="col">App</th>
                                     <th scope="col">Art</th>
                                     <th scope="col">Zielgruppe</th>
                                     <th scope="col">Reifegrad</th>
-                                    <th scope="col" class="numeric">Entwicklungszeit</th>
-                                    <th scope="col" class="numeric">Sitzungen</th>
+                                    <th scope="col" class="numeric"><span data-effort-hint>Entwicklungszeit</span></th>
+                                    <th scope="col" class="numeric"><span data-effort-hint>Sitzungen</span></th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
