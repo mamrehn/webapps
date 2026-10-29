@@ -41,7 +41,7 @@
   // extract_efforts.py used (effort_config.json)
   const model = effortData.model;
   const EFFORT_HINT = model
-    ? `Geschätzt aus der Git-Historie: Eine Sitzung reicht vom ersten bis zum letzten Commit, dazu kommen ${model.pre_streak_minutes}${NBSP}Minuten Arbeit davor und ${model.post_streak_minutes}${NBSP}Minuten danach. Eine Sitzung endet, wenn ${model.streak_threshold_minutes}${NBSP}Minuten lang kein weiterer Commit folgt.`
+    ? `Geschätzt aus der Git-Historie: Commits, die höchstens ${model.streak_threshold_minutes}${NBSP}Minuten auseinanderliegen, bilden eine Sitzung. Jede Sitzung zählt von ihrem ersten bis zu ihrem letzten Commit, dazu ${model.pre_streak_minutes}${NBSP}Minuten davor und ${model.post_streak_minutes}${NBSP}Minuten danach. Die Entwicklungszeit ist die Summe aller Sitzungen.`
     : '';
 
   function explainEffort(node) {
