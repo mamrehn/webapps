@@ -1,0 +1,188 @@
+/* App CSS for the overview page — tokens only (STYLEGUIDE.md § 1).
+   style.css stays an unchanged copy of the B3 styleguide. */
+
+/* --- Toolbar: selects with a visible label on one line ------------ */
+.toolbar-field {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.toolbar-field .form-label {
+  margin-bottom: 0;
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+}
+
+.toolbar-field .form-select {
+  width: auto;
+  min-height: 30px;
+  padding-block: var(--space-1);
+  font-size: var(--font-size-sm);
+}
+
+.result-count {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- Card grid ----------------------------------------------------
+   A catalog of many equal tiles: wider gutters than the default 12 px,
+   so each tile reads as one unit and the footers don't merge into bands. */
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(19rem, 100%), 1fr));
+  gap: var(--space-8);
+}
+
+.app-card {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.app-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.app-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.app-card-desc {
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.app-card-facts {
+  font-size: var(--font-size-sm);
+}
+
+/* „Kleine Werkzeuge“: the deliberately small tools, after the main grid */
+.app-group {
+  margin-top: var(--space-8);
+}
+
+.app-group-lede {
+  margin: var(--space-1) 0 var(--space-5);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Actions: a light row instead of the shaded .card-footer — in a grid of
+   twenty tiles the shaded bands outweighed the content. */
+.app-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.app-card-actions > .btn.ghost {
+  margin-left: calc(-1 * var(--space-3));
+}
+
+.app-card-actions > .cluster {
+  gap: var(--space-2);
+  margin-left: auto;
+}
+
+.app-card-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.app-card-note {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* Maturity: a quiet line at the bottom of the body — meter + level name */
+.maturity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+/* --- Maturity meter: five steps, the last one partially filled ------
+   Metadata, not progress and not clickable: muted ink, no brand fill. */
+.maturity-meter {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-1);
+  width: 5rem;
+}
+
+.maturity-step {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.maturity-fill {
+  display: block;
+  height: 100%;
+  background: var(--color-text-muted);
+}
+
+@media (forced-colors: active) {
+  .maturity-step { border: 1px solid CanvasText; background: Canvas; }
+  .maturity-fill { forced-color-adjust: none; background: CanvasText; }
+}
+
+/* --- Table view ---------------------------------------------------- */
+.data-table .table-group th {
+  padding-top: var(--space-5);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  border-bottom-color: var(--color-rule);
+}
+
+.data-table .install-link {
+  margin-left: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+}
+
+.maturity-cell,
+.audience-cell {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  white-space: nowrap;
+}
+
+.maturity-cell .maturity-meter {
+  margin-right: var(--space-1);
+}
+
+/* --- Maturity scale: the five levels side by side ------------------ */
+.level-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(11rem, 100%), 1fr));
+  gap: var(--space-5) var(--space-8);
+  list-style: none;
+}
+
+.level-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.level-item p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}

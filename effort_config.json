@@ -1,0 +1,7 @@
+{
+  "_comment": "Parameters of the effort estimate (extract_efforts.py). Key names as in github.com/mamrehn/work_tracker. Commits at most streak_threshold_minutes apart form one work session; a session counts from its first to its last commit, plus pre_streak_minutes before and post_streak_minutes after. Only commits whose author name or e-mail matches author_pattern (regex, case-insensitive) are counted.",
+  "author_pattern": "mamrehn",
+  "streak_threshold_minutes": 50,
+  "pre_streak_minutes": 15,
+  "post_streak_minutes": 5
+}
