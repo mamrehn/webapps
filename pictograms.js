@@ -124,17 +124,21 @@ window.PICTOGRAMS = {
     <rect class="solid orange" x="36" y="25" width="4" height="4" rx=".5"/>
     <path class="muted" d="M8 27h5M8 33h12M8 37h8M28 27h5M28 33h12M28 37h8"/>`,
 
-  // Lesson entries filled in down the week, one check still open
+  // WeBuntis' plaster stuck on the WebUntis week: lessons done, one still
+  // open. The plaster as it rests on the page, without its stripes
   'webuntis-helfer': `
-    <rect class="paper" x="5" y="7" width="38" height="35" rx="2"/>
-    <path d="M5 14h38M14 4v6M34 4v6"/>
-    <rect class="solid teal" x="10" y="19" width="4" height="4" rx=".5"/>
-    <path class="teal" d="M18 21h14"/>
-    <rect class="solid teal" x="10" y="27" width="4" height="4" rx=".5"/>
-    <path class="teal" d="M18 29h14"/>
-    <rect class="orange" x="10" y="35" width="4" height="4" rx=".5"/>
-    <path class="muted dotted" d="M18 37h14"/>
-    <path class="teal" d="M38 19v15m-2.5-2.5L38 34l2.5-2.5"/>`,
+    <rect class="paper" x="4" y="5" width="34" height="31" rx="2"/>
+    <path d="M4 12h34"/>
+    <path class="muted" d="M10 8.5h1M18.5 8.5h1M27 8.5h1"/>
+    <rect class="solid teal" x="8" y="16" width="5" height="9" rx=".5"/>
+    <rect class="solid teal" x="16.5" y="16" width="5" height="4" rx=".5"/>
+    <rect class="solid teal" x="8" y="29" width="5" height="3" rx=".5"/>
+    <rect class="tint orange" x="25" y="16" width="5" height="9" rx=".5"/>
+    <g transform="rotate(-45 32 32)">
+      <rect class="paper" x="19.5" y="26.5" width="25" height="11" rx="5.5"/>
+      <rect class="wash" x="28.5" y="28.5" width="7" height="7" rx="1.5"/>
+      <path class="muted" d="M24 30h0m0 4h0M40 30h0m0 4h0"/>
+    </g>`,
 
   // The booking list: free rooms for a small group get a star, the rest fade
   'webuntis-raeume': `

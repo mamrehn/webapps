@@ -125,15 +125,15 @@ window.APPS = [
   },
   {
     id: 'webuntis-helfer',
-    title: 'WebUntis-Helfer',
+    title: 'WeBuntis',
     kind: 'Userscript',
     audience: ['teacher'],
     maturity: 3,
     url: 'https://github.com/B3-AWP/b3_enhance_webuntis',
     install: 'https://github.com/B3-AWP/b3_enhance_webuntis/raw/refs/heads/main/webuntis-helper.user.js',
     installNote: 'Mit Violentmonkey oder Tampermonkey, angemeldet bei GitHub (privates Repository).',
-    summary: 'Lehrstoff ausfüllen, Anwesenheit im Blick behalten und das Stundenkonto vorausberechnen – direkt in WebUntis.',
-    description: 'Lehrstoff: Jahresübersicht aller deiner Kurse, Vorschläge aus den anderen Klassen des Kurses, dem Kursplan (aus mebis importierbar) und dem Vorjahr, (halb-)automatisches Ausfüllen offener Stunden mit Rückgängig-Funktion. Anwesenheit: eine Tabelle pro Klasse mit Fehltagen, Verspätungen, fehlenden Attesten, Prüfungen und Hinweisen auf auffällige Fehlzeitenmuster, Export für Excel und die ASV; Erinnerungen übergibt das Skript an den ByCS-Messenger (es füllt jeden Chat vor, du drückst nur noch Enter). Stundenkonto: Plus- und Minusstunden des Schuljahres mit Übertrag aus dem Vorjahr. Frühere Schuljahre bleiben erhalten, auch wenn WebUntis sie nicht mehr anbietet, und lassen sich als .ics-Datei sichern und wieder einlesen. Meldet, wenn auf GitHub eine neue Version bereitsteht.'
+    summary: 'Lehrstoff ausfüllen, Klassen im Blick behalten und Prüfungen planen – direkt in WebUntis.',
+    description: 'Das Pflaster unten rechts in WebUntis öffnet WeBuntis; bunt wird es, sobald die Maus darauf zeigt. Lehrstoff: Jahresübersicht aller deiner Kurse, Vorschläge aus den anderen Klassen des Kurses, dem Kursplan (aus mebis importierbar) und dem Vorjahr, (halb-)automatisches Ausfüllen offener Stunden mit Rückgängig-Funktion. Klassen: eine Anwesenheitstabelle pro Klasse mit Fehltagen, Verspätungen, fehlenden Attesten und Hinweisen auf auffällige Fehlzeitenmuster, Export für Excel und die ASV, eine Frühwarnung vor dem Notenschluss, der Block-Check für Beginn und Ende jedes Schulblocks und Gesprächsbögen zum Ausdrucken. Erinnerungen gehen über den ByCS-Messenger (jeder Chat ist vorausgefüllt, du drückst nur noch Enter), Mitteilungen an den Ausbildungsbetrieb über dein E-Mail-Programm. Prüfungen: ein Prüfungsplan, der Kurzarbeiten und Schulaufgaben jeder Klasse bis zum Notenschluss prüft und Termine vorschlägt, Nachschreiben mit Terminvorschlägen, eine Sitzordnung, die übliche Sitznachbarn trennt und an der Tafel erscheint, und das Prüfungs-Dashboard mit Restzeit und Nachteilsausgleich. Dazu das Stundenkonto mit den Plus- und Minusstunden des Schuljahres und die Termine der Schulleitung in deinem Stundenplan. Frühere Schuljahre bleiben erhalten, auch wenn WebUntis sie nicht mehr anbietet, und lassen sich als .ics-Datei sichern und wieder einlesen. Meldet, wenn auf GitHub eine neue Version bereitsteht.'
   },
   {
     id: 'webuntis-raeume',
