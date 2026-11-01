@@ -128,7 +128,7 @@ window.APPS = [
     title: 'WeBuntis',
     kind: 'Userscript',
     audience: ['teacher'],
-    maturity: 3,
+    maturity: 3.5,
     url: 'https://github.com/B3-AWP/b3_enhance_webuntis',
     install: 'https://github.com/B3-AWP/b3_enhance_webuntis/raw/refs/heads/main/webuntis-helper.user.js',
     installNote: 'Mit Violentmonkey oder Tampermonkey, angemeldet bei GitHub (privates Repository).',
