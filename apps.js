@@ -171,10 +171,10 @@ window.APPS = [
   },
   {
     id: 'notenrechner',
-    title: 'Punkte zu Note',
+    title: 'Notenrechner',
     kind: 'Web-App',
     audience: ['student', 'teacher'],
-    maturity: 4.1,
+    maturity: 5,
     compact: true,
     url: 'https://mamrehn.github.io/notenrechner/',
     summary: 'Der IHK-Notenschlüssel für jede Höchstpunktzahl: Notengrenzen, Note und Dezimalnote zu jeder Punktzahl – auch aus mebis.',
