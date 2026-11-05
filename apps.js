@@ -214,6 +214,17 @@ window.APPS = [
     description: 'React Web-App zur Verwaltung mehrerer Timer für gleichzeitige Prüfungen. Ähnlich dem Prüfungs-Dashboard, aber fokussiert auf mehrere unterschiedliche Zeitanzeigen – ohne Notizen für die zu Prüfenden.'
   },
   {
+    id: 'background-removal-scaler',
+    title: 'Background Removal Scaler',
+    kind: 'Web-App und Python-Skript',
+    audience: ['student', 'teacher'],
+    maturity: 5,
+    compact: true,
+    url: 'https://mamrehn.github.io/background-removal-scaler/',
+    summary: 'Überträgt den Freisteller eines Online-Dienstes auf dein Originalfoto in voller Auflösung.',
+    description: 'Im Internet entfernen viele Dienste den Hintergrund eines Fotos mit einem Klick – liefern das Ergebnis aber oft nur in verkleinerter Auflösung. Diese App holt die volle Auflösung zurück: Du legst dein Originalfoto und den kleinen Freisteller ab, sie überträgt dessen Transparenz auf das Original und speichert ein verlustfreies PNG. Die Kanten schmiegen sich dabei an die Konturen des Fotos an, die Deckkraft des Hintergrunds ist einstellbar, und auf Wunsch entsteht ein JPEG, WebP oder AVIF vor einer Farbe deiner Wahl. Alles läuft im Browser, kein Bild wird hochgeladen. Ein Python-Skript liefert auf der Kommandozeile pixelgenau dasselbe Ergebnis.'
+  },
+  {
     id: 'dual-llm',
     title: 'Interaktives Lernsystem mit lokalem Dual-LLM',
     kind: 'KI-Lernsystem',

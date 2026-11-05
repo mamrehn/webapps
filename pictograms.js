@@ -252,5 +252,30 @@ window.PICTOGRAMS = {
     <path class="muted" d="M24 27v4m-2-2 2 2 2-2"/>
     <circle cx="8.5" cy="38" r="4.5"/>
     <path d="M8.5 35.5V38l1.8 1.8"/>
-    <rect class="solid teal" x="16" y="36" width="28" height="4" rx="1"/>`
+    <rect class="solid teal" x="16" y="36" width="28" height="4" rx="1"/>`,
+
+  // The small cutout of an online service, scaled up to the full photo:
+  // the same figure, now large, in front of the transparency checkerboard
+  'background-removal-scaler': `
+    <path class="muted dotted" d="M18 4l26 10M4 18l10 26"/>
+    <rect class="paper" x="14" y="14" width="30" height="30" rx="2"/>
+    <path class="wash" stroke="none" d="
+      M15 15h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
+      M19 19h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
+      M15 23h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
+      M19 27h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
+      M15 31h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
+      M19 35h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
+      M15 39h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z"/>
+    <circle class="paper" cx="30" cy="26" r="5.5"/>
+    <path class="paper" d="M19 44v-1a8 8 0 0 1 8-8h6a8 8 0 0 1 8 8v1"/>
+    <g class="blue">
+      <circle class="tint" cx="30" cy="26" r="5.5"/>
+      <path class="tint" d="M19 44v-1a8 8 0 0 1 8-8h6a8 8 0 0 1 8 8v1"/>
+    </g>
+    <rect class="paper" x="4" y="4" width="14" height="14" rx="1.5"/>
+    <g class="blue">
+      <circle class="tint" cx="11" cy="9.5" r="2.5"/>
+      <path class="tint" d="M6.5 18v-.5a3.5 3.5 0 0 1 3.5-3.5h2a3.5 3.5 0 0 1 3.5 3.5v.5"/>
+    </g>`
 };

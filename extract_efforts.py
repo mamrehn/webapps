@@ -56,6 +56,7 @@ APP_SOURCES = {
     "diffiefellows": ["diffiefellows"],
     "work-tracker": ["work_tracker"],
     "timers": ["timers"],
+    "background-removal-scaler": ["background-removal-scaler"],
     "dual-llm": ["b3_finetuned_roleplay_llm"],
     "coode-vibes": ["b3_coode_vibes"],
 }
