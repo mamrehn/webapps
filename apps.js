@@ -177,8 +177,8 @@ window.APPS = [
     maturity: 4.1,
     compact: true,
     url: 'https://mamrehn.github.io/notenrechner/',
-    summary: 'Rechnet Punkte nach dem IHK-Notenschlüssel in Noten um.',
-    description: 'Ein Werkzeug zum Berechnen von Noten auf Basis von Punkten und dem IHK Notenschlüssel.'
+    summary: 'Der IHK-Notenschlüssel für jede Höchstpunktzahl: Notengrenzen, Note und Dezimalnote zu jeder Punktzahl – auch aus mebis.',
+    description: 'Rechnet den 100-Punkte-Schlüssel der IHK (§ 24 der Musterprüfungsordnung) auf jede Höchstpunktzahl um. Die Tabelle zeigt für jede Note den Punkt- und Prozentbereich, wahlweise in halben oder ganzen Punkten oder auf 0,01 genau wie in mebis; Zusatzpunkte verlängern nur „sehr gut“ nach oben. Zu einer erreichten Punktzahl, auch mit Nachkommastellen, nennt die Seite Note, Prozent und Dezimalnote, ohne Ampelfarben. Das Ergebnis lässt sich als Text kopieren, als Link teilen oder mit dem Titel der Prüfung ausdrucken. Für Lehrkräfte: „Punkte zusammenzählen“ addiert die Punkte je Aufgabe für jede Person, meldet fehlende Aufgaben und unmögliche Werte und zeigt Summe und Note. „Klasse auswerten“ nimmt eine Liste von Punkten ohne Namen, etwa direkt aus Excel, zeigt Notenspiegel und Durchschnitt und gibt die Noten im selben Layout zurück. Alles läuft im Browser, nichts wird hochgeladen.'
   },
   {
     id: 'diffiefellows',

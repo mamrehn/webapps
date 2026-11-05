@@ -24,20 +24,20 @@ window.EFFORTS = {
       "last": "2026-10-19"
     },
     "git": {
-      "hours": 12.38,
-      "sessions": 17,
-      "days": 10,
-      "commits": 47,
+      "hours": 12.71,
+      "sessions": 18,
+      "days": 11,
+      "commits": 48,
       "first": "2025-10-10",
-      "last": "2026-10-02"
+      "last": "2026-11-05"
     },
     "styleguide": {
-      "hours": 7.22,
-      "sessions": 12,
-      "days": 7,
-      "commits": 22,
+      "hours": 7.56,
+      "sessions": 13,
+      "days": 8,
+      "commits": 23,
       "first": "2025-10-04",
-      "last": "2026-10-29"
+      "last": "2026-11-05"
     },
     "netzwerkdose": {
       "hours": 11.79,
@@ -120,12 +120,12 @@ window.EFFORTS = {
       "last": "2026-09-14"
     },
     "notenrechner": {
-      "hours": 1.63,
-      "sessions": 2,
-      "days": 2,
-      "commits": 10,
+      "hours": 2.38,
+      "sessions": 4,
+      "days": 3,
+      "commits": 13,
       "first": "2024-06-05",
-      "last": "2025-07-02"
+      "last": "2026-11-05"
     },
     "diffiefellows": {
       "hours": 1.22,
@@ -160,12 +160,12 @@ window.EFFORTS = {
       "last": "2026-11-05"
     },
     "dual-llm": {
-      "hours": 21.46,
-      "sessions": 38,
-      "days": 19,
-      "commits": 84,
+      "hours": 21.8,
+      "sessions": 39,
+      "days": 20,
+      "commits": 85,
       "first": "2025-08-17",
-      "last": "2026-10-07"
+      "last": "2026-11-05"
     },
     "coode-vibes": {
       "hours": 0.34,
