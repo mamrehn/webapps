@@ -254,28 +254,23 @@ window.PICTOGRAMS = {
     <path d="M8.5 35.5V38l1.8 1.8"/>
     <rect class="solid teal" x="16" y="36" width="28" height="4" rx="1"/>`,
 
-  // The small cutout of an online service, scaled up to the full photo:
-  // the same figure, now large, in front of the transparency checkerboard
+  // Resolution restored: the cutout on the left as an online service
+  // returns it, coarse and in steps; on the right as the app makes it from
+  // the full-resolution photo, smooth. The divider compares both (as the
+  // app does), the checkerboard is the transparent background. The frame
+  // is drawn last, so its border lies on top
   'background-removal-scaler': `
-    <path class="muted dotted" d="M18 4l26 10M4 18l10 26"/>
-    <rect class="paper" x="14" y="14" width="30" height="30" rx="2"/>
     <path class="wash" stroke="none" d="
-      M15 15h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
-      M19 19h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
-      M15 23h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
-      M19 27h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
-      M15 31h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
-      M19 35h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z
-      M15 39h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4zm8 0h4v4h-4z"/>
-    <circle class="paper" cx="30" cy="26" r="5.5"/>
-    <path class="paper" d="M19 44v-1a8 8 0 0 1 8-8h6a8 8 0 0 1 8 8v1"/>
-    <g class="blue">
-      <circle class="tint" cx="30" cy="26" r="5.5"/>
-      <path class="tint" d="M19 44v-1a8 8 0 0 1 8-8h6a8 8 0 0 1 8 8v1"/>
-    </g>
-    <rect class="paper" x="4" y="4" width="14" height="14" rx="1.5"/>
-    <g class="blue">
-      <circle class="tint" cx="11" cy="9.5" r="2.5"/>
-      <path class="tint" d="M6.5 18v-.5a3.5 3.5 0 0 1 3.5-3.5h2a3.5 3.5 0 0 1 3.5 3.5v.5"/>
-    </g>`
+      M9 3h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6z
+      M3 9h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6z
+      M9 15h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6z
+      M3 21h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6z
+      M9 27h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6z
+      M3 33h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6z
+      M9 39h6v6h-6zm12 0h6v6h-6zm12 0h6v6h-6z"/>
+    <path class="paper" stroke="none" d="M24 11h-4v4h-4v8h4v4h4zM24 31h-8v4h-4v10h12zM24 11a8 8 0 0 1 0 16zM24 31h4a9 9 0 0 1 9 9v5H24z"/>
+    <path class="tint muted" d="M24 11h-4v4h-4v8h4v4h4zM24 31h-8v4h-4v10h12z"/>
+    <path class="tint blue" d="M24 11a8 8 0 0 1 0 16zM24 31h4a9 9 0 0 1 9 9v5H24z"/>
+    <path d="M24 3v42"/>
+    <rect x="3" y="3" width="42" height="42" rx="2"/>`
 };
